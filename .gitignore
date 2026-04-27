@@ -1,0 +1,42 @@
+# ========================
+# ENV (IMPORTANT)
+# ========================
+.env
+**/.env
+**/.env.*
+
+# ========================
+# Backend (Spring Boot)
+# ========================
+performance-tracker-app-backend/target/
+*.log
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# ========================
+# Frontend (Angular)
+# ========================
+performance-tracker-app-frontend/node_modules/
+performance-tracker-app-frontend/dist/
+performance-tracker-app-frontend/.angular/cache/
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# ========================
+# IDE / Editors
+# ========================
+.vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# ========================
+# System files
+# ========================
+.DS_Store
+Thumbs.db
