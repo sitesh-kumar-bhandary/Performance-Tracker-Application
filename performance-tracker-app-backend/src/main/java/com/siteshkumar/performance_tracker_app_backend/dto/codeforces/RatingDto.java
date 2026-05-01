@@ -9,9 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RatingDto {
     
+    private Integer contestId;
     private String contestName;
-    private int rank;
-    private int oldRating;
-    private int newRating;
+    private Integer rank;
+    private Integer oldRating;
+    private Integer newRating;
     
 }

@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 public class SubmissionDto {
     
     private String verdict;
+    private Integer contestId;
+    private Long creationTimeSeconds;
     private ProblemDto problem;
 
 }
