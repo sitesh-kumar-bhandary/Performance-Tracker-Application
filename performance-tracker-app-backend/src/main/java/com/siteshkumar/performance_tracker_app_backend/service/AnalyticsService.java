@@ -1,5 +1,6 @@
 package com.siteshkumar.performance_tracker_app_backend.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,9 +27,13 @@ public class AnalyticsService {
         List<ProblemSolvedEntity> problems = problemSolvedRepository.findByHandle(handle);
 
         Map<String, TopicStatsDto> topics = generateAnalytics(problems);
+        List<String> weakTopics = findWeakTopics(topics);
+        List<String> strongTopics = findStrongTopics(topics);
 
         AnalyticsResponseDto response = new AnalyticsResponseDto();
         response.setTopics(topics);
+        response.setWeakTopics(weakTopics);
+        response.setStrongTopics(strongTopics);
 
         return response;
     }
@@ -61,4 +66,31 @@ public class AnalyticsService {
 
         return result;
     }
+
+    private List<String> findWeakTopics(Map<String, TopicStatsDto> topics){
+        List<String> result = new ArrayList<>();
+
+        for(Map.Entry<String, TopicStatsDto> entry : topics.entrySet()){
+            PerformanceLevel level = entry.getValue().getLevel();
+
+            if(level == PerformanceLevel.FOUNDATION || level == PerformanceLevel.DEVELOPING)
+                result.add(entry.getKey());
+        }
+
+        return result;
+    }
+
+    private List<String> findStrongTopics(Map<String, TopicStatsDto> topics){
+        List<String> result = new ArrayList<>();
+
+        for(Map.Entry<String, TopicStatsDto> entry : topics.entrySet()){
+            PerformanceLevel level = entry.getValue().getLevel();
+
+            if(level == PerformanceLevel.PROFICIENT || level == PerformanceLevel.STRONG)
+                result.add(entry.getKey());
+        }
+
+        return result;
+    }
+
 }
