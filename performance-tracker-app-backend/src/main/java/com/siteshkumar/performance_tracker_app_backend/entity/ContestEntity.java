@@ -2,7 +2,7 @@ package com.siteshkumar.performance_tracker_app_backend.entity;
 
 import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
-import com.siteshkumar.performance_tracker_app_backend.enums.Platform;
+import com.siteshkumar.performance_tracker_app_backend.enums.PlatformStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -31,7 +31,7 @@ public class ContestEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Platform platform;
+    private PlatformStatus platform;
 
     @Column(nullable = false)
     private LocalDateTime contestDate;

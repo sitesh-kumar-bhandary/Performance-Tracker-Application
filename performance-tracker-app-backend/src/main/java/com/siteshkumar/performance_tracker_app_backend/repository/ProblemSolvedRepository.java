@@ -1,5 +1,6 @@
 package com.siteshkumar.performance_tracker_app_backend.repository;
 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.siteshkumar.performance_tracker_app_backend.entity.ProblemSolvedEntity;
@@ -8,5 +9,6 @@ import com.siteshkumar.performance_tracker_app_backend.entity.ProblemSolvedEntit
 public interface ProblemSolvedRepository extends JpaRepository<ProblemSolvedEntity, Long>{
     
     boolean existsByHandleAndContestIdAndProblemIndex(String handle, Integer contestId, String problemIndex);
+    List<ProblemSolvedEntity> findByHandle(String handle);
 
 }
