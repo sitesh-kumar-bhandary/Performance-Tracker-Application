@@ -12,7 +12,9 @@ import lombok.NoArgsConstructor;
 public class AnalyticsResponseDto {
 
     private Map<String, TopicStatsDto> topics;
-    List<String> weakTopics;
-    List<String> strongTopics;
+    private List<String> weakTopics;
+    private List<String> strongTopics;
+    private List<String> focusTopics;
+    private String insights;
     
 }
